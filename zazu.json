@@ -8,6 +8,7 @@
         "id": "searcher",
         "type": "RootScript",
         "script": "search.js",
+        "debounce": 500,
         "connections": ["ShowFile"]
       }
     ],

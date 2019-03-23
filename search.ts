@@ -1,13 +1,12 @@
 import axios from 'axios'
 
-export default function(pluginContext) {
-	const baseUrl = 'http://' + pluginContext.host + ':' + pluginContext.port;
-
+export = function(pluginContext) {
 	return {
 		respondsTo: (query) => {
 			return true;
 		},
-		search: async (query, env = {}) => {
+		search: async (query, env) => {
+			const baseUrl = 'http://' + env.host + ':' + env.port;
 			var res = await axios.get(baseUrl, {
 				params: {
 					search: query,
@@ -17,11 +16,13 @@ export default function(pluginContext) {
 			});
 			
 			var items : any[] = res.data.results;
+			if (!items)
+				return [];
 			return items.map(i => ({
 				//icon: 'fa-calculator',
 				title: i.name,
 				subtitle: i.path,
-				value: i.name + '//' + i.path,
+				value: i.path + '//' + i.name,
 			}))
 		}
 	}

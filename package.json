@@ -3,11 +3,8 @@
   "version": "0.0.1",
   "description": "A Zazu Plugin to harness the power and speed of the 'Everything' file indexer",
   "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc search.ts"
   },
   "repository": {
     "type": "git",
@@ -20,6 +17,7 @@
   },
   "homepage": "https://github.com/imdbere/zazu-everything#readme",
   "dependencies": {
+    "@types/node": "^11.11.6",
     "axios": "^0.18.0"
   }
 }

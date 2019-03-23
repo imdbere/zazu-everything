@@ -34,41 +34,39 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-exports.__esModule = true;
 var axios_1 = require("axios");
-function default_1(pluginContext) {
+module.exports = function (pluginContext) {
     var _this = this;
-    var baseUrl = 'http://' + pluginContext.host + ':' + pluginContext.port;
     return {
         respondsTo: function (query) {
             return true;
         },
-        search: function (query, env) {
-            if (env === void 0) { env = {}; }
-            return __awaiter(_this, void 0, void 0, function () {
-                var res, items;
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, axios_1["default"].get(baseUrl, {
+        search: function (query, env) { return __awaiter(_this, void 0, void 0, function () {
+            var baseUrl, res, items;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        baseUrl = 'http://' + env.host + ':' + env.port;
+                        return [4 /*yield*/, axios_1["default"].get(baseUrl, {
                                 params: {
                                     search: query,
                                     json: 1,
                                     path_column: 1
                                 }
                             })];
-                        case 1:
-                            res = _a.sent();
-                            items = res.data.results;
-                            return [2 /*return*/, items.map(function (i) { return ({
-                                    //icon: 'fa-calculator',
-                                    title: i.name,
-                                    subtitle: i.path,
-                                    value: i.name + '//' + i.path
-                                }); })];
-                    }
-                });
+                    case 1:
+                        res = _a.sent();
+                        items = res.data.results;
+                        if (!items)
+                            return [2 /*return*/, []];
+                        return [2 /*return*/, items.map(function (i) { return ({
+                                //icon: 'fa-calculator',
+                                title: i.name,
+                                subtitle: i.path,
+                                value: i.path + '//' + i.name
+                            }); })];
+                }
             });
-        }
+        }); }
     };
-}
-exports["default"] = default_1;
+};
