@@ -1,0 +1,25 @@
+{
+  "name": "zazu-everything",
+  "version": "0.0.1",
+  "description": "A Zazu Plugin to harness the power and speed of the 'Everything' file indexer",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imdbere/zazu-everything.git"
+  },
+  "author": "imdbere",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/imdbere/zazu-everything/issues"
+  },
+  "homepage": "https://github.com/imdbere/zazu-everything#readme",
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}

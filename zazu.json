@@ -1,0 +1,21 @@
+{
+  "name": "zazu-everything",
+  "version": "0.0.1",
+  "description": "A Zazu Plugin to harness the power and speed of the 'Everything' file indexer",
+  "blocks": {
+    "input": [
+      {
+        "id": "searcher",
+        "type": "RootScript",
+        "script": "search.js",
+        "connections": ["ShowFile"]
+      }
+    ],
+    "output": [
+      {
+        "id": "ShowFile",
+        "type": "ShowFile"
+      }
+    ]
+  }
+}
